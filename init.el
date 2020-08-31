@@ -1,3 +1,4 @@
+
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 ;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
@@ -29,4 +30,10 @@
 (defun set-bidi-env ()
   "interactive"
   (setq bidi-paragraph-direction 'nil))
+;; binding f2 to toggle input method to farsi-isiri-9147
+(defun set-layout ()
+  (interactive)
+  (activate-input-method 'farsi-isiri-9147))
+
+(global-set-key (kbd "<f2>") 'set-layout)
 (add-hook 'org-mode-hook 'set-bidi-env)
